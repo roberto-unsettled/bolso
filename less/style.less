@@ -1,0 +1,213 @@
+// out: ../css/style.css, compress: true
+@import "globals.less";
+
+
+/* Absolut dimensions */
+@width:                 320px;
+@height:                480px;
+
+/* Colors */
+@white:                 #fff;
+@black:                 #000;
+
+@heightFrameNumeros:    54px;
+@steps:                 11;
+@stepReal:              @steps - 1;
+/* Border */
+
+@borderInside:                        0px;
+@borderOutside:                       0px;
+@heightBanner:						  @height -  ( @borderInside * 2 ) - ( @borderOutside * 2 );
+@widthBanner:						  @width -  ( @borderInside * 2 ) - ( @borderOutside * 2 );
+
+@fadeTime:                              500ms;
+@toLeftTime:                            700ms;
+@timeWait:                              2700ms;
+
+@timeElement1:                          2400ms;
+@delayElement1:                         200ms;
+@timeElement2:                          2400ms;
+@delayElement2:                         @delayElement1 + @timeElement1 - 1900ms;
+@timeElement3:                          2400ms;
+@delayElement3:                         @delayElement2 + @timeElement2 - 1900ms;
+
+@timeTirador1:                           700ms;
+@delayTirador:                           @timeElement3 + @delayElement3 - 1700;
+
+@timeHelado:                            700ms;
+@delayHelado:                           @timeTirador1 + @delayTirador;
+
+@timeCremallera:                        600ms;
+@delayCremallera:                       @delayHelado + (@timeHelado / 2);
+
+@delayFinal:                            @delayCremallera + @timeCremallera;
+
+@time12:                                @fadeTime;
+@delay12:                               @delayFinal + @fadeTime - 300;
+
+@time11:                                @fadeTime;
+@delay11:                               @delay12;
+
+
+@time1:                                 @fadeTime;
+@delay1:                                @delay11 + @time11 + 800;
+
+@time21:                                @fadeTime;
+@delay21:                               @delay1 + @time1 + 100;
+
+@timeLegal:                             @fadeTime;
+@delayLegal:                            @delay21 + 300;
+
+
+//@timeTextOut:                           @fadeTime;
+//@delayTextOut:                          @delayLegal + @timeLegal + 500;
+
+
+
+#container {
+     .size(@width - ( @borderOutside * 2 ),@height - ( @borderOutside * 2 ) );
+    border:                                 @borderOutside solid @black;
+    position:                               relative;  
+    overflow:                               hidden;
+    cursor:                                 pointer
+}
+
+#ad {
+    .size( @widthBanner, @heightBanner );
+    border:                                 @borderInside solid @white;
+    position:                               relative;
+    overflow:                               hidden;
+    background:                             url('../img/bg.jpg') no-repeat center #ec96b1;
+    cursor:                                 pointer;
+}
+
+.texto {
+    .size;
+    position: absolute;
+    background-color: transparent;
+    background-repeat: no-repeat;
+    background-position: left center;
+    z-index: 70;
+}
+
+.hideA {
+    .opacity( 0 );
+    left: 0;
+}
+
+.tiras {
+    .size(100%,160px);
+    .absoluteTopLeft;
+    z-index: 70;
+}
+
+.elementsContainer {
+    .size(100%,160px);
+    .absoluteTopLeft;
+    overflow: hidden;
+    z-index: 60;
+}
+
+.element {
+    .size(100%,187px);
+    .absoluteTopLeft(100%,0);
+}
+
+.element1 {
+    .animationSimple( animationL2R forwards @timeElement1 ease-out @delayElement1 1);
+    img {
+        .animationSimple( animationRotate1 forwards @timeElement1 ease-out @delayElement1 1);
+    }
+} //element1
+
+.element2 {
+    .animationSimple( animationR2L forwards @timeElement2 ease-out @delayElement2 1);
+    img {
+        .animationSimple( animationRotate2 forwards @timeElement2 ease-out @delayElement2 1);
+    }
+} //element2
+
+.element3 {
+    .animationSimple( animationL2R forwards @timeElement3 ease-out @delayElement3 1);
+    img {
+        .animationSimple( animationRotate1 forwards @timeElement3 ease-out @delayElement3 1);
+    }
+} //element3
+
+.tirador {
+    .size(86px,86px);
+    .absoluteTopLeft(224px,173px);
+    background: url('../img/fondoTirador.png') no-repeat transparent center center;
+    background-size: contain;
+    z-index: 10;
+    .animationSimple( animationTirador forwards @timeTirador1 ease-out @delayTirador 1);
+    img {
+        .animationSimple( animationRotateTirador forwards @timeTirador1 ease-out @delayTirador 1);
+    }
+} //tirador
+.palo {
+    .size;
+    .absoluteTopLeft;
+    background: url('../img/palo.png') no-repeat transparent center center;
+    background-size: contain;
+    z-index: 20;
+}
+ 
+.helado { 
+    .size(65px,79px);
+    .absoluteTopLeft(186px,129px);
+    overflow: hidden;
+    img {
+        .transform(translateY(60%));
+        .animationSimple( animationHelado forwards @timeHelado ease-in @delayHelado 1);
+    }
+}
+
+.cremallera {
+    .size(106px,17px);
+    .absoluteTopLeft(257px,113px);
+    .opacity(0);
+    .animationSimple(animationIn forwards @timeCremallera ease-in @delayCremallera 1);
+}
+
+.final {
+    .size(100%,319px);
+    .absoluteBottomLeft;
+    z-index: 50;
+    .animationSimple( animationIn forwards @time11 ease-out @delayFinal );
+}
+.texto11 {
+    //.animationSimple( animationIn forwards @time11 ease-out @delay11 );
+    .animationSimpleDoble( animationIn forwards @time11 ease-out @delay11 1, animationOut forwards @time1 ease-out @delay1 );
+}
+
+.texto12 {
+    .animationSimple( animationIn forwards @time12 ease-out @delay12 );
+    //.animationSimpleDoble( animationR2L forwards @time11 ease-out @delay11 1, animationOut forwards @timeTextOut ease-out @delayTextOut );
+}
+.texto21 {
+    .animationSimple( animationIn forwards @time21 ease-out @delay21 );
+    //.animationSimpleDoble( animationR2L forwards @time11 ease-out @delay11 1, animationOut forwards @timeTextOut ease-out @delayTextOut );
+}
+
+.legal {
+    .animationSimple( animationIn forwards @timeLegal ease-out @delayLegal );
+    //.animationSimpleDoble( animationR2L forwards @time11 ease-out @delay11 1, animationOut forwards @timeTextOut ease-out @delayTextOut );
+}
+
+#ad {
+  position:                             relative;
+  overflow:                             hidden;
+  display:                              block;
+  left:                                 0;
+  -moz-user-select:                     -moz-none;
+  -khtml-user-select:                   none;
+  -webkit-user-select:                  none;
+  -ms-user-select:                      none;
+  user-select:                          none;
+}
+#ad .animado.animado {
+  -webkit-animation-play-state:         paused;
+  -moz-animation-play-state:            paused;
+  animation-play-state:                 paused;
+}

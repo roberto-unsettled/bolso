@@ -1,0 +1,201 @@
+.size( @width:100%,@height:100%){
+    width:                  @width;
+    height:                 @height;
+    
+}
+
+.visible {
+	visibility: visible;
+}
+.fullSize {
+	position: 	absolute;
+	display: 	block;
+	top: 		0;
+	left:		0;
+	width: 		100%;
+	height: 	100%;
+}
+.center {
+	width: 100%;
+	text-align: center;
+}
+.size( @width,@height ) {
+	width: 		@width;
+	height: 	@height;
+}
+.slow {
+    -webkit-transition: all 700ms cubic-bezier(0.420, 0.000, 0.580, 1.000);
+    -moz-transition: all 700ms cubic-bezier(0.420, 0.000, 0.580, 1.000);
+    -o-transition: all 700ms cubic-bezier(0.420, 0.000, 0.580, 1.000);
+    transition: all 700ms cubic-bezier(0.420, 0.000, 0.580, 1.000); 
+}
+.fast {
+    -webkit-transition: all 350ms cubic-bezier(0.420, 0.000, 0.580, 1.000);
+    -moz-transition: all 350ms cubic-bezier(0.420, 0.000, 0.580, 1.000);
+    -o-transition: all 350ms cubic-bezier(0.420, 0.000, 0.580, 1.000);
+    transition: all 350ms cubic-bezier(0.420, 0.000, 0.580, 1.000); 
+}
+.superfast {
+    -webkit-transition: all 150ms cubic-bezier(0.420, 0.000, 0.580, 1.000);
+    -moz-transition: all 150ms cubic-bezier(0.420, 0.000, 0.580, 1.000);
+    -o-transition: all 150ms cubic-bezier(0.420, 0.000, 0.580, 1.000);
+    transition: all 150ms cubic-bezier(0.420, 0.000, 0.580, 1.000); 
+}
+.png-shadow {        
+  -webkit-filter: drop-shadow(0px 1px 1px rgba(0, 0, 0, 0.75));
+  filter: drop-shadow(0px 1px 1px rgba(0, 0, 0, 0.75));
+}
+.border-radius (@radius: 5px) {
+	-webkit-border-radius: @radius;
+	-moz-border-radius:    @radius;
+	border-radius:         @radius;
+
+	-moz-background-clip:    padding;
+	-webkit-background-clip: padding-box;
+	background-clip:         padding-box;
+}
+.opacity (@opacity: 1) {
+	@microsoft:		@opacity*100;
+	-webkit-opacity: 	@opacity;
+	-moz-opacity: 		@opacity;
+	filter: ~"alpha(opacity = @{microsoft})";
+	opacity: 		@opacity;
+}
+.transition (@transition) {
+	-webkit-transition: @transition;  
+	-moz-transition:    @transition;
+	-ms-transition:     @transition; 
+	-o-transition:      @transition;  
+}
+.skew (@deg, @deg2) {
+	-webkit-transform:	skew(@deg, @deg2);
+	-moz-transform: 	skew(@deg, @deg2);
+	-ms-transform: 		skew(@deg, @deg2);
+	-o-transform: 		skew(@deg, @deg2);
+}
+.transformDoble (@transform, @transform2) {
+	-webkit-transform:	@transform, @transform2;
+	-moz-transform: 	@transform, @transform2;
+	-ms-transform: 		@transform, @transform2;
+	-o-transform: 		@transform, @transform2;
+    transform: 		    @transform, @transform2;
+}
+.transform (@transform) {
+	-webkit-transform:	@transform;
+	-moz-transform: 	@transform;
+	-ms-transform: 		@transform;
+	-o-transform: 		@transform;
+    transform: 		    @transform;
+}
+
+.skewX (@deg) {
+	-webkit-transform:	skewX(@deg);
+	-moz-transform: 	skewX(@deg);
+	-ms-transform: 		skewX(@deg);
+	-o-transform: 		skewX(@deg);
+}
+.absoluteTopLeft(@top:0, @left:0) {
+	position: 	absolute;
+	top: 		@top;
+	left: 		@left;
+	display: 	block;
+}
+.absoluteTopRight(@top:0, @right:0) {
+	position: 	absolute;
+	top: 		@top;
+	right: 		@right;
+	display: 	block;
+}
+.absoluteBottomRight(@bottom:0, @right:0) {
+	position: 	absolute;
+	bottom: 	@bottom;
+	right: 		@right;
+	display: 	block;
+}
+.absoluteBottomLeft(@bottom:0, @left:0) {
+	position: 	absolute;
+	bottom: 	@bottom;
+	left: 		@left;
+	display: 	block;
+}
+
+.animationSimple (@animacion) {
+	-webkit-animation: @animacion;
+	-moz-animation:    @animacion;
+	-ms-animation:     @animacion;
+	animation:     	   @animacion;
+}
+.animationSimpleDoble ( @animacion,@animacion2 ) {
+	-webkit-animation: @animacion,@animacion2;
+	-moz-animation:    @animacion,@animacion2;
+	-ms-animation:     @animacion,@animacion2;
+	animation:     	   @animacion,@animacion2;
+}
+
+.animationSimpleTriple ( @animacion,@animacion2, @animacion3 ) {
+	-webkit-animation: @animacion,@animacion2, @animacion3;
+	-moz-animation:    @animacion,@animacion2, @animacion3;
+	-ms-animation:     @animacion,@animacion2, @animacion3;
+	animation:     	   @animacion,@animacion2, @animacion3;
+}
+
+.animationSimpleCuadruple ( @animacion,@animacion2, @animacion3, @animacion4 ) {
+	-webkit-animation: @animacion,@animacion2, @animacion3, @animacion4;
+	-moz-animation:    @animacion,@animacion2, @animacion3, @animacion4;
+	-ms-animation:     @animacion,@animacion2, @animacion3, @animacion4;
+	animation:     	   @animacion,@animacion2, @animacion3, @animacion4;
+}
+
+.animationSimpleQuintuple ( @animacion,@animacion2, @animacion3, @animacion4, @animacion5 ) {
+	-webkit-animation: @animacion,@animacion2, @animacion3, @animacion4, @animacion5;
+	-moz-animation:    @animacion,@animacion2, @animacion3, @animacion4, @animacion5;
+	-ms-animation:     @animacion,@animacion2, @animacion3, @animacion4, @animacion5;
+	animation:     	   @animacion,@animacion2, @animacion3, @animacion4, @animacion5;
+}
+
+.animationSimpleSexto ( @animacion,@animacion2, @animacion3, @animacion4, @animacion5, @animacion6 ) {
+	-webkit-animation: @animacion,@animacion2, @animacion3, @animacion4, @animacion5, @animacion6;
+	-moz-animation:    @animacion,@animacion2, @animacion3, @animacion4, @animacion5, @animacion6;
+	-ms-animation:     @animacion,@animacion2, @animacion3, @animacion4, @animacion5, @animacion6;
+	animation:     	   @animacion,@animacion2, @animacion3, @animacion4, @animacion5, @animacion6;
+}
+.rotateSimple (@deg) {
+	-webkit-transform: 	 rotate(unit(@deg, deg));
+	-moz-transform: 	 rotate(unit(@deg, deg));
+	-ms-transform: 		 rotate(unit(@deg, deg));
+	-o-transform: 		 rotate(unit(@deg, deg));
+}
+.animatedOut{
+    from { .opacity( 1 ); }
+    to { .opacity( 0 ); }
+}
+@keyframes animationOut {
+    .animatedOut;
+}
+@-webkit-keyframes animationOut {
+    .animatedOut;
+}
+@-ms-keyframes animationOut {
+    .animatedOut;
+}
+@-moz-keyframes animationOut {
+    .animatedOut;
+}
+//animated OUT -----------------------------
+
+.animatedIn{
+    from { .opacity( 0 ); }
+    to { .opacity( 1 ); }
+}
+@keyframes animationIn {
+    .animatedIn;
+}
+@-webkit-keyframes animationIn {
+    .animatedIn;
+}
+@-ms-keyframes animationIn {
+    .animatedIn;
+}
+@-moz-keyframes animationIn {
+    .animatedIn;
+}
